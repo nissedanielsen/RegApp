@@ -16,7 +16,7 @@ public class Database {
         try {
            // Class.forName("com.mysql.jdbc.Driver");
 
-           con = DriverManager.getConnection("jdbc:mysql://localhost:3306/gradeappdb?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true", "root", "Pompe2007!");
+           con = DriverManager.getConnection("jdbc:mysql://localhost:3306/gradeappdb?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true", "root", "");
         // con = DriverManager.getConnection("jdbc:derby://localhost:1527/gradeSytemDB", "gradeSytemDB", "gradeSytemDB");
         } catch (Exception e) {
             System.out.println(e);
