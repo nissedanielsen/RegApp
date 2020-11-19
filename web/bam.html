@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Vue - data demo</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"/>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" ></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    </head>
+    <body>
+
+        <h1> Vue.js - JavaScript Ramverk</h1> 
+
+
+        <div id="app2">
+
+            <p> 
+                <button v-on:click="loadData()">Ladda data</button>
+
+            </p>
+            <table>
+                <thead>       
+                <th scope="col">modulnr</th>
+                <th scope="col">kurskod</th>
+                <th scope="col">hp</th>
+                <th scope="col">kursname</th> 
+                <th scope="col">modulname</th> 
+                </thead>  
+                <tbody>
+                    <tr v-for= "bam in bam">                        
+                        <td>{{bam.modulnr}}</td>       
+                        <td>{{bam.kurskod}}</td>
+                        <td>{{bam.hp}}</td>  
+                        <td>{{bam.kursname}}</td>
+                        <td>{{bam.modulname}}</td>
+                    </tr>             
+                </tbody>
+            </table>
+
+
+        </div> 
+
+  
+        <script>
+
+            new Vue({
+                el: '#app2',
+                data: {
+                    bam: []
+                },
+                methods: {
+                    loadData: function () {  
+                        axios.get('http://localhost:27923/RegApp/webresources/EpokAPI/epoks')
+                                .then(response => {
+                                    this.bam = response.data;
+                                    console.log(response);
+                                })
+                                .catch(error => {
+                                    console.log(error);
+                                });
+                    }
+                }
+
+            });
+
+        </script>
+  </body>
+</html>
